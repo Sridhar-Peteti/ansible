@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: Installing Httpd server
+      action: yum name=httpd state=present
+
+    - name: Restarting Httpd server
+      service: name=httpd state=restarted
+
+    - name: Installing git locally
+      action: yum name=git state=present
+
+    - name: Adding src code to httpd from git
+      git:
+        repo: "https://github.com/Sridhar-Peteti/srccode-fortest.git"
+        dest: "/var/www/html/"
