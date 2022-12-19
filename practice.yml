@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: Installing a tool for ex maven
+      action: yum name=maven state= present
+
+    - name: creating a user
+      user: name = testuser state = present
+
+    - name: creating a file
+      file:
+        path: "testfile.txt"
+        state: touch
+    - name: creating file in root user
+      file:
+        path: "/root/newfile.txt"
+        state: touch
+
+    - name: creating file in another user
+      file:
+        path: "home/testuser/userfile.txt"
+        state: touch
