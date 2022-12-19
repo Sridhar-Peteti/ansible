@@ -6,10 +6,10 @@
 
   tasks:
     - name: Installing a tool for ex maven
-      action: yum name=maven state= present
+      action: yum name=maven state=present
 
     - name: creating a user
-      user: name = testuser state = present
+      user: name=testuser state=present
 
     - name: creating a file
       file:
