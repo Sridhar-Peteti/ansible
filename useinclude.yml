@@ -1,0 +1,13 @@
+---
+- hosts: all:localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars:
+    - xyz: maven
+
+  tasks:
+     - include: includefile.yml
+     - name: Installing multiple toosls using include and variable
+       action: yum name='{{xyz}}' state=present

@@ -1,0 +1,16 @@
+---
+- name: tetsing onn dev server
+  hosts: dev
+  tasks:
+    - name: create a file
+      file: 
+        dest: "test.txt"
+        state: touch
+
+- name: testing on test server
+  hosts: test
+  tasks:
+    - name: create a file
+      file:
+        dest: "test.txt"
+        state: touch

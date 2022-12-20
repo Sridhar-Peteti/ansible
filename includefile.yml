@@ -1,0 +1,4 @@
+---
+- set_fact: abc=tree
+- name: install using setfact
+  action: yum name='{{abc}}' state=present

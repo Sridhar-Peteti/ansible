@@ -1,0 +1,31 @@
+---
+- hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+     - name: Creating multiple users using with_items
+       user: name='{{item}}' state=present
+       with_items:
+          - user1 
+          - user2
+      
+     - name: Deleting multiple users using with_items
+       user: name='{{item}}' state=absent
+       with_items:
+          - user1 
+          - user2
+      
+     - name: Creating multiple groups using with_items
+       group:  name='{{item}}' state=present
+       with_items:
+          - group1 
+          - group2
+      
+     - name: Deleting multiple users using with_items
+       group: name='{{item}}' state=absent
+       with_items:
+          - group1 
+          - group2
+      
