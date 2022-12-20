@@ -5,7 +5,7 @@
   connection: ssh
 
   tasks:
-    - name: Installing a tool for ex maven
+    - name: Installing a tool for example maven
       action: yum name=maven state=present
 
     - name: creating a user
@@ -22,5 +22,5 @@
 
     - name: creating file in another user
       file:
-        path: "home/testuser/userfile.txt"
+        path: "/home/testuser/userfile.txt"
         state: touch
