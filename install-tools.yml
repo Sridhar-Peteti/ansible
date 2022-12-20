@@ -5,7 +5,7 @@
   connection: ssh
 
   tasks:
-     - name: Installing multiple toosls using with_items
+     - name: Installing multiple tools using with_items
        action: yum name='{{item}}' state=present
        with_items: 
           - git
