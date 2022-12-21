@@ -1,0 +1,21 @@
+---
+- hosts: devserver-1
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - debug:
+        msg: "the ipv4 address of the server is {{ansible_default_ipv4.address}}"
+
+        
+- hosts: prodserver-1
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - debug:
+        msg: "os_family of the server is {{ansible_os_family}}"

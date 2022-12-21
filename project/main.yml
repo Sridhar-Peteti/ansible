@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+  roles:
+    - role1
+    - role2
+    - role3
+

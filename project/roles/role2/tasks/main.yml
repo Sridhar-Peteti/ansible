@@ -1,0 +1,2 @@
+- name: to install maven
+  action: yum name=maven state=present

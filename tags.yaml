@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - name: Installing Httpd
+      action: yum name=httpd state=present
+      tags: abc
+
+    - name: Installing git
+      command: yum install git -y
+      tags: xyz
+
+    - name: Installing Maven
+      action: yum name=maven  state=present
+      tags: pqr
+
+# if you want to skip any of the task just use, for example " ansible-playbook filname.yml --skip-tags "abc"

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: installing raw module
+      raw: yum -y install vim-common

@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: Installing Httpd server
+      action: yum name=httpd state=present
+
+    - name: Restarting Httpd server
+      service: name=httpd state=restarted
+
+    - name: Creating index.html file
+      file:
+        path: "/var/www/html/index.html"
+        state: touch
+    
+    - name: adding content to the file
+      copy:
+        dest: "/var/www/html/index.html"
+        content: |
+          <h1> Here I am trying to use content module to insert data into the file</h1>
+

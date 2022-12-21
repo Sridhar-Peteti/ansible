@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - name: creating a folder with full permission
+      file:
+        path: "testfolder"
+        state: directory
+        mode: 0777
+
+    - name: creating a user
+      file:
+        path: "./testfolder/testfile.txt"
+        state: touch
